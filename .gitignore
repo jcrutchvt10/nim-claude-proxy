@@ -1,0 +1,15 @@
+.env
+node_modules/
+
+# Claude and local runtime state
+.remember/logs/
+.remember/tmp/
+.claude/settings.local.json
+
+# Generated logs and temp files
+*.log
+latest
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
