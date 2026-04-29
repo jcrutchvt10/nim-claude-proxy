@@ -112,8 +112,7 @@ The proxy uses `sk-ant-test-key-do-not-use` as a placeholder ANTHROPIC_API_KEY. 
 - minimax (default)
 - mixtral
 - llama
-
-The proxy also supports any NVIDIA NIM model id your API key can access.
+- glm51 (`z-ai/glm-5.1`)
 
 Print just the model ids your API key can use:
 
@@ -134,7 +133,6 @@ Fuzzy-pick a model and copy a `model:...` line to your clipboard:
 ./pick-nim-model.ps1 -Query mixtral
 ./pick-nim-model.ps1 -Query qwen -Top 10
 ```
-
 List available models:
 
 ```powershell
@@ -151,6 +149,7 @@ Invoke-RestMethod http://localhost:3000/v1/models | ConvertTo-Json -Depth 6
 Use header:
 ```
 x-model: mixtral
+x-model: glm51
 ```
 
 ## In-chat model selector
@@ -160,6 +159,7 @@ You can force model selection from inside your Claude message by putting one of 
 /nim minimax
 /nim mixtral
 /nim llama
+/nim glm51
 ```
 
 or:
@@ -168,6 +168,7 @@ or:
 #model:minimax
 #model:mixtral
 #model:llama
+#model:glm51
 ```
 
 or:
@@ -176,6 +177,7 @@ or:
 model:minimax
 model:mixtral
 model:llama
+model:glm51
 ```
 
 You can also use a full NVIDIA model id on the first line, for example:
@@ -183,6 +185,7 @@ You can also use a full NVIDIA model id on the first line, for example:
 ```
 model:mistralai/mixtral-8x7b-instruct-v0.1
 model:meta/llama-3.1-70b-instruct
+model:z-ai/glm-5.1
 ```
 
 In Claude Code chat, `/nim ...` may be intercepted as a slash command before reaching the proxy.

@@ -18,6 +18,12 @@ export default {
       routeAliases: ["mixtral"],
       temperature: 0.6,
       max_tokens: 4096
+    },
+    glm51: {
+      model: "z-ai/glm-5.1",
+      routeAliases: ["minimax", "mixtral"],
+      temperature: 0.3,
+      max_tokens: 8192
     }
   }
 };
