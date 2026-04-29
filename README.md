@@ -78,6 +78,31 @@ Pass Claude CLI args through the wrapper as needed:
 ./claude-proxy.ps1 --help
 ```
 
+## Verify tool calling compatibility
+Run the built-in tool-calling compatibility checks:
+
+```powershell
+./verify-tool-calling.ps1
+```
+
+This validates:
+- forced tool use (`tool_choice: tool`)
+- explicit no-tool mode (`tool_choice: none`)
+- tool_result round-trip across turns
+- fallback from tool-unsupported primary routes to tool-capable alternates
+
+Run the skills-focused compatibility checks:
+
+```powershell
+./verify-skills-functionality.ps1
+```
+
+This validates:
+- forced skill passthrough
+- `tool_choice: any` and `tool_choice: auto` behavior with multiple declared skills
+- successful and failed skill result round-trips (`tool_result` with `is_error`)
+- streaming `tool_use` event shape for skill invocations
+
 If Claude Code sees an invalid key format or a stale proxy base URL from user-level settings, it can still fail before reaching the proxy. The project-local `.claude/settings.json` in this repo is intended to override that for this workspace.
 
 ## Why the dummy API key?

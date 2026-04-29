@@ -1,5 +1,7 @@
 {
   "env": {
-    "CLAUDE_CODE_ATTRIBUTION_HEADER": "0"
+    "CLAUDE_CODE_ATTRIBUTION_HEADER": "0",
+    "ANTHROPIC_BASE_URL": "http://localhost:3000",
+    "ANTHROPIC_API_KEY": "sk-ant-test-key-do-not-use"
   }
 }
